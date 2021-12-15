@@ -38,7 +38,7 @@
 		  select * from (
 			    select (@R := @R+1) as recNum,t.*
 			       from (
-			              select  *  from t_shoping_member 
+			              select  *  from t_shopping_member 
 			              where date_format(joinDate,'%Y-%m-%d') between #{beginDate} and #{endDate}
 			                <if test="search_type=='member_id'">
 			                  AND member_id=#{search_word}
@@ -50,7 +50,7 @@
 			                   AND hp1||hp2||hp3=#{search_word} 
 			                </if>
 			              order by joinDate desc
-					    ) t , (SELECT @R := 0) TMP
+					    ) t 
 				) a							
 			where				
 		recNum between (#{section}-1)*100+ (#{pageNum}-1)*10+1 and (#{section}-1)*100+(#{pageNum})*10				        

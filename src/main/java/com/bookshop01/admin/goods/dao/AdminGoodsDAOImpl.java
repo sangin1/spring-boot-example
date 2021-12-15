@@ -41,14 +41,14 @@ public class AdminGoodsDAOImpl  implements AdminGoodsDAO{
 	@Override
 	public GoodsVO selectGoodsDetail(int goods_id) throws DataAccessException{
 		GoodsVO goodsBean = new GoodsVO();
-		goodsBean=(GoodsVO)sqlSession.selectOne("mapper.admin.goods.selectGoodsDetail",goods_id);
+		goodsBean=(GoodsVO)sqlSession.selectOne("mapper.admin.goods.selectGoodsDetail",Integer.toString(goods_id));
 		return goodsBean;
 	}
 	
 	@Override
 	public List selectGoodsImageFileList(int goods_id) throws DataAccessException {
 		List imageList=new ArrayList();
-		imageList=(List)sqlSession.selectList("mapper.admin.goods.selectGoodsImageFileList",goods_id);
+		imageList=(List)sqlSession.selectList("mapper.admin.goods.selectGoodsImageFileList",Integer.toString(goods_id));
 		return imageList;
 	}
 	

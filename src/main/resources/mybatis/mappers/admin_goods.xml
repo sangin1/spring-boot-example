@@ -159,7 +159,7 @@
 			             		 goods_creDate,
 			             		 goods_published_date
 			              from t_shopping_goods 
-			                where  date_format(goods_creDate,'%Y-%m-%d')  between #{beginDate} and #{endDate}
+			                where  date_format(goods_creDate,'%Y-%m-%d')  between 1000-09-09 and 3000-09-09
 			               order by goods_creDate desc
 					    ) A, (SELECT @R := 0) TMP
                         ) B
